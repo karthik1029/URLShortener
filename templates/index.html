@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px; /* Increased padding for more space */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 320px; /* Adjusted width to maintain balance */
+        }
+        input[type="text"], input[type="submit"], input[type="button"] {
+            width: calc(100% - 20px); /* Adjusted width to fit inside the container with padding */
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box; /* Ensures padding is included in the width */
+        }
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+        }
+        input[type="button"] {
+            background-color: #FF6347;
+            color: white;
+            border: none;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>URL Shortener</h2>
+        <form method="post" action="/">
+            <input type="text" name="long_url" placeholder="Enter a long URL" required>
+            <input type="submit" value="Shorten URL">
+        </form>
+
+        {% if short_url %}
+            <p>Shortened URL:</p>
+            <a href="{{ short_url }}" target="_blank">{{ short_url }}</a>
+            <form method="post" action="/clear">
+                <input type="button" value="Clear" onclick="window.location.href='/clear'">
+            </form>
+        {% endif %}
+    </div>
+</body>
+</html>

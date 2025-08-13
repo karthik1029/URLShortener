@@ -1,6 +1,6 @@
 # URL Shortener
 
-A simple URL shortening service built with Flask and Redis.
+A simple URL shortening service built with Redis.
 
 ## Features
 
